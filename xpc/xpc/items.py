@@ -12,6 +12,7 @@ from scrapy import Field
 class PostItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    table_name = 'posts'
     pid = Field()
     title = Field()
     thumbnail = Field()  # 缩略图
@@ -26,16 +27,21 @@ class PostItem(scrapy.Item):
 
 
 class CommentItem(scrapy.Item):
+    table_name = 'comments'
     commentid = Field()  # 评论的id
     pid = Field()  # 被评论的电影的id
     cid = Field()  # 评论者id
+    avatar = Field()
+    uname = Field()
     created_at = Field()  # 评论创建时间
     content = Field()  # 评论内容
     like_counts = Field()  # 被赞次数
+    reply = Field()
 
 
 # 用户
 class ComposerItem(scrapy.Item):
+    table_name = 'composers'
     cid = Field()
     name = Field()
     banner = Field()  # 背景图片
@@ -46,8 +52,10 @@ class ComposerItem(scrapy.Item):
     fans_counts = Field()  # 该用户的粉丝数
     follow_counts = Field()  # 该用户关注的人数
 
+
 # 定位标签（导演，制作人等等）
 class CopyrightItem(scrapy.Item):
+    table_name = 'copyrights'
     pcid = Field()
     pid = Field()
     cid = Field()  # 作者id

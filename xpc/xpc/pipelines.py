@@ -6,6 +6,7 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import pymysql
 
+
 class MysqlPipeline(object):
     def __init__(self):
         self.conn = None

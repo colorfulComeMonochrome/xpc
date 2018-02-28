@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Copyrights(models.Model):
+class Copyright(models.Model):
     pcid = models.CharField(primary_key=True, max_length=32)
     pid = models.BigIntegerField()
     cid = models.BigIntegerField()

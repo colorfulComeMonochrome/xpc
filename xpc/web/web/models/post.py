@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Posts(models.Model):
+class Post(models.Model):
     pid = models.BigIntegerField(primary_key=True)
     title = models.CharField(max_length=256)
     thumbnail = models.CharField(max_length=512, blank=True, null=True)
@@ -17,3 +17,4 @@ class Posts(models.Model):
     class Meta:
         managed = False
         db_table = 'posts'
+

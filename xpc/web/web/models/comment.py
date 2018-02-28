@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Comments(models.Model):
+class Comment(models.Model):
     commentid = models.IntegerField(primary_key=True)
     pid = models.BigIntegerField()
     cid = models.BigIntegerField()

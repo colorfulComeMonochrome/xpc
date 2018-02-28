@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="xpc@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="xpc">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="axf"/>
+    <schema id="4" parent="1" name="AXFproject"/>
+    <schema id="5" parent="1" name="FlaskProject1"/>
+    <schema id="6" parent="1" name="HelloDjango01"/>
+    <schema id="7" parent="1" name="information_schema"/>
+    <schema id="8" parent="1" name="Login"/>
+    <schema id="9" parent="1" name="mono"/>
+    <schema id="10" parent="1" name="mysql"/>
+    <schema id="11" parent="1" name="performance_schema"/>
+    <schema id="12" parent="1" name="shuoshuo456"/>
+    <schema id="13" parent="1" name="sys"/>
+    <schema id="14" parent="1" name="testdata"/>
+    <schema id="15" parent="1" name="tigereye"/>
+    <schema id="16" parent="1" name="university"/>
+    <table id="17" parent="2" name="comments">
+      <Comment>评论表</Comment>
+    </table>
+    <table id="18" parent="2" name="composers">
+      <Comment>用户表</Comment>
+    </table>
+    <table id="19" parent="2" name="copyrights">
+      <Comment>著作权关系表</Comment>
+    </table>
+    <table id="20" parent="2" name="django_migrations"/>
+    <table id="21" parent="2" name="posts">
+      <Comment>作品表</Comment>
+    </table>
+    <column id="22" parent="17" name="commentid">
+      <Position>1</Position>
+      <Comment>评论表主键</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="17" name="pid">
+      <Position>2</Position>
+      <Comment>评论的作品ID</Comment>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="24" parent="17" name="cid">
+      <Position>3</Position>
+      <Comment>评论人ID</Comment>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="25" parent="17" name="avatar">
+      <Position>4</Position>
+      <Comment>评论人头像</Comment>
+      <DataType>varchar(512)|0</DataType>
+    </column>
+    <column id="26" parent="17" name="uname">
+      <Position>5</Position>
+      <Comment>评论人名称</Comment>
+      <DataType>varchar(512)|0</DataType>
+    </column>
+    <column id="27" parent="17" name="created_at">
+      <Position>6</Position>
+      <Comment>发表时间</Comment>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="28" parent="17" name="content">
+      <Position>7</Position>
+      <Comment>评论内容</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="29" parent="17" name="like_counts">
+      <Position>8</Position>
+      <Comment>被点赞次数</Comment>
+      <DataType>int(8)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="30" parent="17" name="reply">
+      <Position>9</Position>
+      <Comment>回复其他评论的ID，如果不是则为0</Comment>
+      <DataType>int(8)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="31" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>commentid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="32" parent="18" name="cid">
+      <Position>1</Position>
+      <Comment>创作者表主键</Comment>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="33" parent="18" name="banner">
+      <Position>2</Position>
+      <Comment>用户主页banner图片</Comment>
+      <DataType>varchar(512)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="18" name="avatar">
+      <Position>3</Position>
+      <Comment>用户头像</Comment>
+      <DataType>varchar(512)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="35" parent="18" name="verified">
+      <Position>4</Position>
+      <Comment>是否加V</Comment>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="36" parent="18" name="name">
+      <Position>5</Position>
+      <Comment>名字</Comment>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="18" name="intro">
+      <Position>6</Position>
+      <Comment>自我介绍</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="38" parent="18" name="like_counts">
+      <Position>7</Position>
+      <Comment>被点赞次数</Comment>
+      <DataType>int(8)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="39" parent="18" name="fans_counts">
+      <Position>8</Position>
+      <Comment>被关注数量</Comment>
+      <DataType>int(8)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="40" parent="18" name="follow_counts">
+      <Position>9</Position>
+      <Comment>关注数量</Comment>
+      <DataType>int(8)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="41" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>cid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="19" name="pcid">
+      <Position>1</Position>
+      <Comment>主键，由pid_cid组成</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="19" name="pid">
+      <Position>2</Position>
+      <Comment>对应作品表主键</Comment>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="44" parent="19" name="cid">
+      <Position>3</Position>
+      <Comment>对应作者表主键</Comment>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="45" parent="19" name="roles">
+      <Position>4</Position>
+      <Comment>担任角色</Comment>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="46" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>pcid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="47" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="48" parent="20" name="app">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="20" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="20" name="applied">
+      <Position>4</Position>
+      <DataType>datetime(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="51" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="21" name="pid">
+      <Position>1</Position>
+      <Comment>作品表主键</Comment>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="53" parent="21" name="title">
+      <Position>2</Position>
+      <Comment>作品标题</Comment>
+      <DataType>varchar(256)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="21" name="thumbnail">
+      <Position>3</Position>
+      <Comment>视频缩略图</Comment>
+      <DataType>varchar(512)|0</DataType>
+    </column>
+    <column id="55" parent="21" name="preview">
+      <Position>4</Position>
+      <Comment>视频预览图</Comment>
+      <DataType>varchar(512)|0</DataType>
+    </column>
+    <column id="56" parent="21" name="video">
+      <Position>5</Position>
+      <Comment>视频链接</Comment>
+      <DataType>varchar(512)|0</DataType>
+    </column>
+    <column id="57" parent="21" name="video_format">
+      <Position>6</Position>
+      <Comment>视频格式：4K 等</Comment>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="58" parent="21" name="category">
+      <Position>7</Position>
+      <Comment>作品分类</Comment>
+      <DataType>varchar(512)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="59" parent="21" name="created_at">
+      <Position>8</Position>
+      <Comment>发表时间</Comment>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="60" parent="21" name="description">
+      <Position>9</Position>
+      <Comment>作品描述</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="61" parent="21" name="play_counts">
+      <Position>10</Position>
+      <Comment>播放次数</Comment>
+      <DataType>int(8)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="62" parent="21" name="like_counts">
+      <Position>11</Position>
+      <Comment>被点赞次数</Comment>
+      <DataType>int(8)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="63" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>pid</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

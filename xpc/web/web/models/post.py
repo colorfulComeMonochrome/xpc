@@ -1,5 +1,6 @@
 from django.db import models
-
+from web.models.composer import Composer
+from web.models.copyright import Copyright
 
 class Post(models.Model):
     pid = models.BigIntegerField(primary_key=True)
@@ -17,4 +18,25 @@ class Post(models.Model):
     class Meta:
         managed = False
         db_table = 'posts'
+
+    @property
+    def composers(self):
+        """取出当前作品的所有作者"""
+        # if not hasattr(self, '_composers'):
+        #     self.composers = []
+        # if self._composers:
+        #     return self._composers
+        composers = []
+        cr_list = Copyright.objects.filter(pid=self.pid).all()
+        for cr in cr_list:
+            composer = Composer.objects.get(cid=cr.cid)
+            composer.role = cr.roles
+            composers.append(composer)
+        return composers
+
+
+
+
+
+
 

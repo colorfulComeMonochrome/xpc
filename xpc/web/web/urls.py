@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from web.views import post
+from web.views import post, composer
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', post.show_list),
+    url(r'^user/oneuser/userid-(?P<cid>\d+)$', composer.oneuser),
 
 ]

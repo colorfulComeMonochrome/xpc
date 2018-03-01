@@ -10,7 +10,9 @@ def show_list(request):
     return render(request, 'post_list.html', {'posts': posts})
 
 
-
+def post_detail(request, pid):
+    post = Post.objects.get(pid=pid)
+    return render(request, 'post.html', locals())
 
 
 

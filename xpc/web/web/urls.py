@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', post.show_list),
     url(r'^user/oneuser/userid-(?P<cid>\d+)$', composer.oneuser),
-
+    url(r'^a(?P<pid>\d+)$', post.post_detail),
 ]

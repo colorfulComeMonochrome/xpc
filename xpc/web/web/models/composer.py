@@ -1,4 +1,6 @@
 from django.db import models
+from web.models.post import Post
+from web.models.copyright import Copyright
 
 
 class Composer(models.Model):
@@ -15,3 +17,13 @@ class Composer(models.Model):
     class Meta:
         managed = False
         db_table = 'composers'
+
+
+
+
+
+
+
+
+
+

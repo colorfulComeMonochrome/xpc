@@ -736,8 +736,8 @@
 	/* 神策统计 */
 	var attrStat = {
 		articlePageFrom: pageFrom,
-		articleName: "【腾讯】腾讯手机浏览器-天朝生活指南",
-		articleID: "37542",
+		articleName: "{{ post.title }}",
+		articleID: "{{ post.pid }}",
 		articleUser: "10010354",
 		articleChannelType: $(".filmplay-intro .cate").text().trim()
 	};
@@ -794,7 +794,7 @@
 	_sharedPrivate.on("click",function(){
 
 
-		$.post('/index.php?app=article&ac=filmplay&ts=share',{articleid : 37542,handle : "share"},function(res){
+		$.post('/index.php?app=article&ac=filmplay&ts=share',{articleid : {{ post.pid }},handle : "share"},function(res){
 
 			if(res.data){
 				// zhuge.track("私密视频-私密分享");
@@ -829,7 +829,7 @@
 			content :"是否确认关闭加密分享？之前的链接和密码将永久失效。"
 		},function(){
 			// zhuge.track("私密视频-取消分享确定");
-			$.post('/index.php?app=article&ac=filmplay&ts=share',{articleid : 37542,handle : "unshare"},function(res){
+			$.post('/index.php?app=article&ac=filmplay&ts=share',{articleid : {{ post.pid }},handle : "unshare"},function(res){
 				// _shareBtnPrivate.text("加密分享");
 
 				_sharedPrivate.text("开启加密分享");
@@ -861,7 +861,7 @@
 	}
 
 	var authorid = '10010354',
-		articleid = '37542';
+		articleid = '{{ post.pid }}';
 
 	$("#comment_content").focus(function() {
 	  commentFocusFlag = false;

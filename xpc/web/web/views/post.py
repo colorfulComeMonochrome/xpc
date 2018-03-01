@@ -1,7 +1,7 @@
 from web.models.post import Post
 from django.core.paginator import Paginator
 from django.shortcuts import render
-
+from web.models.comment import Comment
 
 def show_list(request):
     post_list = Post.objects.order_by('-like_counts')
@@ -12,13 +12,22 @@ def show_list(request):
 
 def post_detail(request, pid):
     post = Post.objects.get(pid=pid)
+    print(pid)
+    print(post)
     return render(request, 'post.html', locals())
 
 
-
-
-
-
+def get_comments(request):
+    pid = request.GET.get('id')
+    print(pid)
+    page = request.GET.get('page')
+    print(page)
+    comment_list = Comment.objects.filter(pid=pid).order_by('-created_at')
+    paginator = Paginator(comment_list, 10)
+    comments = paginator.page(page)
+    print(comments)
+    print(comment_list)
+    return render(request, 'comments.html', locals())
 
 
 

@@ -972,22 +972,76 @@
                     <div class="video-view fs_12 fw_300 c_b_9"><span class="type">播放</span><span
                             class="fw_600">{{ post.play_counts }}</span><span class="i-icon v-center"></span><span
                             class="type">喜欢</span><span class="fw_600">{{ post.like_counts }}</span></div>
+
+
+
                     <div class="user-info">
-                        <a class="user-link v-center enter-creator-space" href="javascript:;" data-userid="10221798">
+
+                        <a class="user-link v-center enter-creator-space" href="javascript:;" data-userid="{{ post.composers.0.cid }}">
+                        {% if post.composers|length > 1 %}
+
+                            <span class="authors-head-wrap" data-userid="{{ post.composers.0.cid }}">
+
+                        {% for composer in post.composers %}
+
+                            <img class="avator v-center" src="{{ composer.avatar }}">
+
+                        {% endfor %}
+                            </span>
+
+                            <span class="name fs_12 fw_300 c_b_3 v-center line-hide-1">
+                                {{ post.composers|length }}位制作人
+                            </span>
+
+                            <span class="role fs_12 fw_300 c_b_9 v-center line-hide-1">{{ post.composers.0.role }}</span>
+
+                        {% else %}
+
 							<span class="head-wrap" data-userid="{{ post.composers.0.cid }}">
 
-																	<img class="avator v-center"
-                                                                         src="{{ post.composers.0.avatar }}">
-																			<span class="author-v yellow-v"></span>
+                            <img class="avator v-center" src="{{ post.composers.0.avatar }}">
+                                    <span class="author-v yellow-v"></span>
 
 
 							</span>
-                            <span class="name fs_12 fw_300 c_b_3 v-center line-hide-1">
-																	{{ post.composers.0.name }}															</span>
+							<span class="name fs_12 fw_300 c_b_3 v-center line-hide-1">
+								{{ post.composers.0.name }}
+                            </span>
+						    <span class="role fs_12 fw_300 c_b_9 v-center line-hide-1">
+                                {{ post.composers.0.role }}
+                            </span>
+
+
+                                
+                        {% endif %}
+
                         </a>
-                        <span class="role fs_12 fw_300 c_b_9 v-center line-hide-1">声音设计</span>
-                        <!--  -->
+                    
+                        {% if post.composers|length > 1 %}
+                            <div class="authors-wrap">
+							<ul class="authors-list">
+                                {% for composer in post.composers %}
+                                <li class="head-wrap" data-userid="{{ composer.cid }}">
+									<a href="/u{{ composer.cid }}" target="_blank">
+										<span class="avator-wrap">
+											<img class="avator" src="{{ composer.avatar }}" alt="">
+                                            <span class="author-v blue-v"></span>
+                                        </span>
+										<div class="info">
+											<p class="name fs_12 fw_300 c_b_3 line-hide-1">{{ composer.name }}</p>
+											<div class="roles fs_12 fw_300 c_b_9 line-hide-1">{{ composer.role }}</div>
+										</div>
+									</a>
+								</li>
+                                {% endfor %}
+                            </ul>
+						</div>
+                        {% endif %}
+                    
                     </div>
+
+
+
                 </div>
             </li>
             {% endfor %}

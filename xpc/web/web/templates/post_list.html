@@ -216,8 +216,7 @@
                             <span class="authors-head-wrap" data-userid="{{ post.composers.0.cid }}">
 
                         {% for composer in post.composers %}
-
-                            <img class="avator v-center" src="{{ composer.avatar }}">
+                            <img class="avator v-center" src="{{ post.composers.0.avatar }}">
 
                         {% endfor %}
                             </span>
@@ -226,7 +225,7 @@
                                 {{ post.composers|length }}位制作人
                             </span>
 
-                            <span class="role fs_12 fw_300 c_b_9 v-center line-hide-1">{{ post.composers.0.role }}</span>
+                            <span class="role fs_12 fw_300 c_b_9 v-center line-hide-1">{{ post.composers.0.career }}</span>
 
                         {% else %}
 
@@ -241,7 +240,7 @@
 								{{ post.composers.0.name }}
                             </span>
 						    <span class="role fs_12 fw_300 c_b_9 v-center line-hide-1">
-                                {{ post.composers.0.role }}
+                                {{ post.composers.0.career }}
                             </span>
 
 
@@ -262,7 +261,7 @@
                                         </span>
 										<div class="info">
 											<p class="name fs_12 fw_300 c_b_3 line-hide-1">{{ composer.name }}</p>
-											<div class="roles fs_12 fw_300 c_b_9 line-hide-1">{{ composer.role }}</div>
+											<div class="roles fs_12 fw_300 c_b_9 line-hide-1">{{ composer.career }}</div>
 										</div>
 									</a>
 								</li>

@@ -1,12 +1,11 @@
-import redis
 from django.utils.functional import cached_property
 from web.models.post import Post
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from web.models.comment import Comment
 from web.helpers.composer import get_posts_by_cid
+from web.helpers import r
 
-r = redis.Redis()
 
 @cached_property
 def count(self):
@@ -16,6 +15,7 @@ def count(self):
         r.set('posts_count', posts_count)
     return int(posts_count)
 
+
 Paginator.count = count
 
 
@@ -23,11 +23,16 @@ def show_list(request):
     post_list = Post.objects.order_by('-play_counts')
     paginator = Paginator(post_list, 40)
     posts = paginator.page(1)
+
+    for post in posts:
+        print(post.get_composers())
+        post.composers = post.get_composers()
     return render(request, 'post_list.html', {'posts': posts})
 
 
 def post_detail(request, pid):
-    post = Post.objects.get(pid=pid)
+    post = Post.get(pid=pid)
+    post.composers = post.get_composers()
     composer = post.first_composer
     composer.posts = get_posts_by_cid(composer.cid, 6)
     return render(request, 'post.html', locals())

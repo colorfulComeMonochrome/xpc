@@ -34,7 +34,9 @@ class Post(models.Model):
             composers.append(composer)
         return composers
 
-
+    @property
+    def first_composer(self):
+        return self.composers[0]
 
 
 

@@ -1,6 +1,4 @@
 from django.db import models
-from web.models.post import Post
-from web.models.copyright import Copyright
 
 
 class Composer(models.Model):

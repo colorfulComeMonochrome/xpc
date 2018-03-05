@@ -116,19 +116,24 @@
 					</div>
 
 		<ul class="creator-list">
-									<li>
+            {% for composer in post.composers %}
+
+
+
+            <li>
 				<a href="/u10010354?from=articleList" target="_black" class="head-wrap" data-userid="10010354">
-					<img class="avator lazy-img" _src="https://cs.xinpianchang.com/uploadfile/user/2016/11/08/582135b1c764e_180.jpeg@80w_80h_1e_1c">
+					<img class="avator lazy-img" _src="{{ composer.avatar }}">
 										<span class="author-v blue-v"></span>
 									</a>
 				<div class="creator-info">
-					<a class="name-wrap" href="/u10010354?from=articleList"><span class="name fs_14 fw_600 c_b_3 line-hide-1">北京市芬格时代文化传播有限公司</span></a>
+					<a class="name-wrap" href="/u{{ composer.cid }}?from=articleList"><span class="name fs_14 fw_600 c_b_3 line-hide-1">{{ composer.name }}</span></a>
 					<span class="roles fs_12 fw_300 c_b_9">制作方</span>
 				</div>
-								<div class="follow-btn fs_12 c_w_f bg-red " data-userid="10010354" data-username="北京市芬格时代文化传播有限公司">关注</div>
-							</li>
-								</ul>
-			</div>
+								<div class="follow-btn fs_12 c_w_f bg-red " data-userid="{{ post.composer.cid }}" data-username="{{ composer.name }}">关注</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 	<div id="user-team-add" class="user-team-add pr hidden">
 		<!-- <div class="user-team-triangle"></div> -->
 		<div class="user-team-close dialog-close" id="user-team-close">×</div>
@@ -423,94 +428,29 @@
 						<div class="filmplay-recommend right-section">
 				<div>
 					<h3 class="fs_20 fw_600">创作人的其他作品</h3>
-					<a href="/u10010354" class="btn fs_12 fw_600 c_b_3">更多</a>
+					<a href="/u{{ composer.cid }}" class="btn fs_12 fw_600 c_b_3">更多</a>
 				</div>
 				<ul class="recommend-list">
-															<li>
-						<a class="cover-wrap" target="_blank" href="http://www.xinpianchang.com/a47190?from=ArticlePageRecommand">
-							<img class="cover" src="http://cs.xinpianchang.com/uploadfile/article/2017/02/06/5898431cdbb87.jpeg@335w.jpg">
+                    {% for post in composer.posts %}
+
+
+
+                    <li>
+						<a class="cover-wrap" target="_blank" href="http://www.xinpianchang.com/a{{ post.pid }}?from=ArticlePageRecommand">
+							<img class="cover" src="{{ post.thumbnail }}">
 							<span class="cover-con"></span>
 						</a>
 						<div class="right-con">
 							<div class="article-contanier">
-								<a target="_blank" href="http://www.xinpianchang.com/a47190?from=article_right" class="title fs_14 fw_600 c_b_3 line-hide-2">【云锋】云锋金融宣传片</a>
+								<a target="_blank" href="http://www.xinpianchang.com/a{{ post.pid }}?from=article_right" class="title fs_14 fw_600 c_b_3 line-hide-2">{{ post.title }}</a>
 								<div href="javascript:;" class="cate-wrap">
-									<span class="cate fs_12 fw_300 c_b_9 line-hide-1">广告/宣传片 - 企业宣传片</span>
+									<span class="cate fs_12 fw_300 c_b_9 line-hide-1">{{ post.category }}</span>
 								</div>
 							</div>
 						</div>
 					</li>
-																				<li>
-						<a class="cover-wrap" target="_blank" href="http://www.xinpianchang.com/a43414?from=ArticlePageRecommand">
-							<img class="cover" src="http://cs.xinpianchang.com/uploadfile/article/2016/12/24/585df1111d593.jpeg@335w.jpg">
-							<span class="cover-con"></span>
-						</a>
-						<div class="right-con">
-							<div class="article-contanier">
-								<a target="_blank" href="http://www.xinpianchang.com/a43414?from=article_right" class="title fs_14 fw_600 c_b_3 line-hide-2">【腾讯】微信本地广告</a>
-								<div href="javascript:;" class="cate-wrap">
-									<span class="cate fs_12 fw_300 c_b_9 line-hide-1">广告/宣传片 - 产品宣传片</span>
-								</div>
-							</div>
-						</div>
-					</li>
-																				<li>
-						<a class="cover-wrap" target="_blank" href="http://www.xinpianchang.com/a37608?from=ArticlePageRecommand">
-							<img class="cover" src="http://cs.xinpianchang.com/uploadfile/article/2016/11/13/58281391efe10.jpeg@335w.jpg">
-							<span class="cover-con"></span>
-						</a>
-						<div class="right-con">
-							<div class="article-contanier">
-								<a target="_blank" href="http://www.xinpianchang.com/a37608?from=article_right" class="title fs_14 fw_600 c_b_3 line-hide-2">【中原银行】中原银行宣传片</a>
-								<div href="javascript:;" class="cate-wrap">
-									<span class="cate fs_12 fw_300 c_b_9 line-hide-1">广告/宣传片 - 企业宣传片</span>
-								</div>
-							</div>
-						</div>
-					</li>
-																				<li>
-						<a class="cover-wrap" target="_blank" href="http://www.xinpianchang.com/a37719?from=ArticlePageRecommand">
-							<img class="cover" src="http://cs.xinpianchang.com/uploadfile/article/2016/11/10/58241fb3c82c9.jpeg@335w.jpg">
-							<span class="cover-con"></span>
-						</a>
-						<div class="right-con">
-							<div class="article-contanier">
-								<a target="_blank" href="http://www.xinpianchang.com/a37719?from=article_right" class="title fs_14 fw_600 c_b_3 line-hide-2">【中国人寿】中国人寿上市十周年宣传片</a>
-								<div href="javascript:;" class="cate-wrap">
-									<span class="cate fs_12 fw_300 c_b_9 line-hide-1">广告/宣传片 - 企业宣传片</span>
-								</div>
-							</div>
-						</div>
-					</li>
-																				<li>
-						<a class="cover-wrap" target="_blank" href="http://www.xinpianchang.com/a37466?from=ArticlePageRecommand">
-							<img class="cover" src="http://cs.xinpianchang.com/uploadfile/article/2016/11/12/58270cb81cc94.jpeg@335w.jpg">
-							<span class="cover-con"></span>
-						</a>
-						<div class="right-con">
-							<div class="article-contanier">
-								<a target="_blank" href="http://www.xinpianchang.com/a37466?from=article_right" class="title fs_14 fw_600 c_b_3 line-hide-2">【腾讯】微信一天</a>
-								<div href="javascript:;" class="cate-wrap">
-									<span class="cate fs_12 fw_300 c_b_9 line-hide-1">动画 - 定格动画</span>
-								</div>
-							</div>
-						</div>
-					</li>
-																				<li>
-						<a class="cover-wrap" target="_blank" href="http://www.xinpianchang.com/a37454?from=ArticlePageRecommand">
-							<img class="cover" src="http://cs.xinpianchang.com/uploadfile/article/2016/11/12/58270879e21a6.jpeg@335w.jpg">
-							<span class="cover-con"></span>
-						</a>
-						<div class="right-con">
-							<div class="article-contanier">
-								<a target="_blank" href="http://www.xinpianchang.com/a37454?from=article_right" class="title fs_14 fw_600 c_b_3 line-hide-2">【腾讯】腾讯智慧-云化智能流</a>
-								<div href="javascript:;" class="cate-wrap">
-									<span class="cate fs_12 fw_300 c_b_9 line-hide-1">广告/宣传片 - 产品宣传片</span>
-								</div>
-							</div>
-						</div>
-					</li>
-														</ul>
+					{% endfor %}
+                </ul>
 			</div>
 					</div>
 		<div class="private-ground">

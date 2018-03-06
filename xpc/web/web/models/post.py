@@ -75,9 +75,6 @@ class Post(models.Model, Model):
                     r.lpush(cache_key, pickle.dumps(composer))
         return composers
 
-    @property
-    def first_composer(self):
-        return self.composers[0]
 
 
 

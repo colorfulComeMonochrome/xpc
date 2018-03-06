@@ -35,8 +35,8 @@ def show_list(request):
 def post_detail(request, pid):
     post = Post.get(pid=pid)
     post.composers = post.get_composers()
-    composer = post.first_composer
-    composer.posts = get_posts_by_cid(composer.cid, 6)
+    first_composer = post.composers[0]
+    first_composer.posts = get_posts_by_cid(first_composer.cid, 6)
     return render(request, 'post.html', locals())
 
 

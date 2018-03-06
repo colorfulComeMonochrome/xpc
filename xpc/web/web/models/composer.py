@@ -1,7 +1,8 @@
 from django.db import models
+from web.models import Model
 
 
-class Composer(models.Model):
+class Composer(models.Model, Model):
     cid = models.BigIntegerField(primary_key=True)
     banner = models.CharField(max_length=512)
     avatar = models.CharField(max_length=512)

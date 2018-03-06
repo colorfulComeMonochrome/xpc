@@ -33,7 +33,7 @@
 				<div class="film-main banner-wrap">
                     <a id="player" href="{{ post.video }}" style="display:none;width:960;height:540;"></a>
                     <div class="video-js-box vim-css">
-                        <video id="xpc_video" class="video-js" width="960" height="540" preload="auto" controls="controls" pw="960" poster="http://cs.xinpianchang.com/uploadfile/article/2016/11/09/5822a612e5b29.jpeg@960w_540h_1e_1c.jpg" webkit-playsinline   src="{{ post.video }}" alt="{{ post.title }}">
+                        <video id="xpc_video" class="video-js" width="960" height="540" preload="auto" controls="controls" pw="960" poster="{{ post.preview }}" webkit-playsinline   src="{{ post.video }}" alt="{{ post.title }}">
                             <source src="//qiniu-xpc0.xpccdn.com/5822a61467f79.mp4" type="video/mp4" />
                             <object id="flash_fallback_1" class="vjs-flash-fallback" width="960" height="540" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
                                 <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
@@ -52,7 +52,7 @@
 			<div class="filmplay-info">
 				<div class="filmplay-info-common left-section">
 					<div class="video-mark">
-																								</div>
+                    </div>
 					<span class="authorize-con"></span>
 					<div class="title-wrap">
 						<h3 class="title fs_26 fw_600 c_b_3 ">{{ post.title }}</h3>

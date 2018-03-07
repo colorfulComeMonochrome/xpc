@@ -28,7 +28,7 @@ def count(self):
 Paginator.count = count
 
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 def show_list(request):
     post_list = Post.objects.order_by('-play_counts')
     paginator = Paginator(post_list, 40)

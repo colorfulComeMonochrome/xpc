@@ -1,4 +1,7 @@
 from django.http import HttpResponseRedirect
+from django.conf import settings
+from web.helpers.composer import md5_pwd
+from web.models.composer import Composer
 
 need_login = ['/', ]
 
@@ -13,9 +16,10 @@ class AuthMiddleware(object):
         # the view (and later middleware) are called.
         if request.path in need_login:
             cid = request.COOKIES.get('cid')
-            if not cid:
+            token = request.COOKIES.get('token')
+            if not cid or md5_pwd(cid, settings.SECRET_KEY) != token:
                 return HttpResponseRedirect('/login/')
-
+            request.composer = Composer.get(cid=cid)
         response = self.get_response(request)
 
         # Code to be executed for each request/response after

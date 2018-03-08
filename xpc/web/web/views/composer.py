@@ -1,11 +1,13 @@
 from datetime import datetime
+from hashlib import md5
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.conf import settings
 from web.helpers.code import gen_code, send_sms_code, verify
 from web.models.composer import Composer
 from web.models.copyright import Copyright
 from web.models.code import Code
-from web.helpers.composer import get_posts_by_cid
+from web.helpers.composer import get_posts_by_cid, md5_pwd
 
 
 def oneuser(request, cid):
@@ -42,7 +44,7 @@ def do_register(request):
     composer = Composer()
     composer.cid = composer.phone = phone
     composer.name = nickname
-    composer.password = password
+    composer.password = md5_pwd(phone, password)
     composer.avatar = ''
     composer.banner = ''
     composer.save()
@@ -72,14 +74,17 @@ callback:http%3A%2F%2Fwww.xinpianchang.com%2F
     phone = request.POST.get('value')
     password = request.POST.get('password')
     composer = Composer.get_by_phone(phone)
-    if not composer or password != composer.password:
+    if not composer or password != md5_pwd(phone, password):
         return JsonResponse({"status": -1, "msg": "用户名或密码错误"})
-    return JsonResponse({
+    response = JsonResponse({
         'status': 0,
         'data': {
             'callback': '/'
         }
     })
+    response.set_cookie('cid', composer.cid)
+    response.set_cookie('token', md5_pwd(composer.cid, settings.SECRET_KEY))
+    return response
 
 
 def send_code(request):
